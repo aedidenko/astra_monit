@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Панель управления</title>
+</head>
+<body>
+<link href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAACUWAAAlFgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHz1+wB89fwAAAAAAHz1+wB89f8AfPX/AHz1/wB89f8AfPX/AHz1/wB89f8AfPX/AHz1/wB89fwAAAAAAAAAAAB89fwAfPX8AAAAAAB89fwAfPX/AHz1/wB89f8AfPX/AHz1/wB89f8AfPX/AHz1/wB89f8AfPX8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHz1+wB89fwAAAAAAHz1+wB89f8AfPX/AHz1/wB89f8AfPX/AHz1/wB89f8AfPX/AHz1/wB89fwAAAAAAAAAAAB89fwAfPX8AAAAAAB89fwAfPX/AHz1/wB89f8AfPX/AHz1/wB89f8AfPX/AHz1/wB89f8AfPX8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHz1+wB89fwAAAAAAHz1+wB89f8AfPX/AHz1/wB89f8AfPX/AHz1/wB89f8AfPX/AHz1/wB89fwAAAAAAAAAAAB89fwAfPX8AAAAAAB89fwAfPX/AHz1/wB89f8AfPX/AHz1/wB89f8AfPX/AHz1/wB89f8AfPX8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHz1+wB89fwAAAAAAHz1+wB89f8AfPX/AHz1/wB89f8AfPX/AHz1/wB89f8AfPX/AHz1/wB89fwAAAAAAAAAAAB89fwAfPX8AAAAAAB89fwAfPX/AHz1/wB89f8AfPX/AHz1/wB89f8AfPX/AHz1/wB89f8AfPX8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//8AAP//AAD//wAAkAEAAJABAAD//wAAkAEAAJABAAD//wAAkAEAAJABAAD//wAAkAEAAJABAAD//wAA//8AAA==" rel="icon" type="image/x-icon" />
+<link rel="stylesheet" href="scripts/uikit/css/uikit.min.css" />
+<script src="scripts/jquery/jquery.js"></script>
+<script src="scripts/uikit/js/uikit.min.js"></script>
+<script src="scripts/uikit/js/components/grid.js"></script>
+
+
+
+<!--Верхнее меню-->
+<nav class="uk-navbar">
+<ul class="uk-navbar-nav">
+<button class="uk-button" data-uk-offcanvas="{target:'#offcanvas-1'}"><i class="uk-icon-television"></i>Воронеж</button>
+<!--<button class="uk-button" data-uk-offcanvas="{target:'#offcanvas-2'}"><i class="uk-icon-globe"></i> X3</button>-->
+<button class="uk-button" data-uk-offcanvas="{target:'#offcanvas-3'}"><i class="uk-icon-globe"></i> Инет ресурсы</button>
+<!---->
+<!--<a href="#offcanvas-1" data-uk-offcanvas>Test</a>-->
+</ul>
+</nav>
+
+
+
+
+
+<!--Боковое меню 1-->
+<div id="offcanvas-1" class="uk-offcanvas">
+ <div class="uk-offcanvas-bar">
+  <ul class="uk-nav uk-nav-side uk-nav-offcanvas uk-nav-parent-icon" data-uk-nav>
+   <li class="uk-active"><a href="#offcanvas-1">Воронеж</a></li>
+
+   <li><a href="http://ardee.ru/monitor/index.php" target="content"><i class="uk-icon-bar-chart"></i> Мониторинг</a></li>
+
+   <li class="uk-nav-divider"></li>
+
+   <li class="uk-parent">
+    <a href="#"><i class="uk-icon-cog"></i> Astra управление</a>
+    <ul class="uk-nav-sub uk-h6">
+      IPTV-1
+      <ul>
+       <li><a href="http://ardee.ru:8110" target="content"> Streamer 8110</a></li>
+       <li><a href="http://ardee.ru:8111" target="content"> Streamer 8111</a></li>
+       <li><a href="http://ardee.ru:8112" target="content"> Streamer 8112</a></li>
+       <li><a href="http://ardee.ru:8113" target="content"> Streamer 8113</a></li>
+       <li><a href="http://ardee.ru:8114" target="content"> Streamer 8114</a></li>
+       <li><a href="http://ardee.ru:47998" target="content"> HTTP SD/HD</a></li>
+      </ul>
+      IPTV-1
+      <ul>
+       <li><a href="http://iptv.ardee.ru:8110" target="content"> Streamer 8110</a></li>
+       <li><a href="http://iptv.ardee.ru:8111" target="content"> Streamer 8111</a></li>
+       <li><a href="http://iptv.ardee.ru:8112" target="content"> Streamer 8112</a></li>
+       <li><a href="http://iptv.ardee.ru:8113" target="content"> Streamer 8113</a></li>
+       <li><a href="http://iptv.ardee.ru:8114" target="content"> Streamer 8114</a></li>
+       <li><a href="http://iptv.ardee.ru:8115" target="content"> Streamer 8115</a></li>
+       <li><a href="http://iptv.ardee.ru:8116" target="content"> Streamer 8116</a></li>
+       <li><a href="http://iptv.ardee.ru:8117" target="content"> Streamer 8117</a></li>
+       <li><a href="http://iptv.ardee.ru:8118" target="content"> Streamer 8118</a></li>
+       <li><a href="http://iptv.ardee.ru:8119" target="content"> Streamer 8119</a></li>
+       <li><a href="http://iptv.ardee.ru:8120" target="content"> Streamer 8120</a></li>
+       <li><a href="http://iptv.ardee.ru:8121" target="content"> Streamer 8121</a></li>
+       <li><a href="http://iptv.ardee.ru:47998" target="content"> HTTP SD</a></li>
+       <li><a href="http://iptv.ardee.ru:47996" target="content"> HTTP HD</a></li>
+       <li><a href="http://iptv.ardee.ru:47997" target="content"> HTTP Эфир</a></li>
+      </ul>
+         </ul>
+   </li>
+   <li class="uk-parent">
+    <a href="#"><i class="uk-icon-area-chart"></i> Графики сигнала</a>
+    <ul class="uk-nav-sub uk-h6">
+     IPTV-1
+      <ul>
+<!--      <ul class="uk-grid uk-grid-width-1-2 uk-grid-width-medium-1-2 uk-grid-width-large-1-2 uk-grid-small uk-grid-collapse">-->
+       <li><a href="http://192.168.0.210/astra_monitor/rrdtool/graph/graph_day_18110.png" target="content">Streamer 8110</a></li>
+       <li><a href="http://192.168.0.210/astra_monitor/rrdtool/graph/graph_day_18111.png" target="content">Streamer 8111</a></li>
+       <li><a href="http://192.168.0.210/astra_monitor/rrdtool/graph/graph_day_18112.png" target="content">Streamer 8112</a></li>
+       <li><a href="http://192.168.0.210/astra_monitor/rrdtool/graph/graph_day_18113.png" target="content">Streamer 8113</a></li>
+       <li><a href="http://192.168.0.210/astra_monitor/rrdtool/graph/graph_day_18114.png" target="content">Streamer 8114</a></li>
+      </ul>
+<!--      <ul class="uk-grid uk-grid-width-1-2 uk-grid-width-medium-1-2 uk-grid-width-large-1-2 uk-grid-small uk-grid-collapse">-->
+      IPTV-2
+      <ul>
+       <li><a href="http://192.168.0.210/astra_monitor/rrdtool/graph/graph_day_28110.png" target="content">Streamer 8110</a></li>
+       <li><a href="http://192.168.0.210/astra_monitor/rrdtool/graph/graph_day_28111.png" target="content">Streamer 8111</a></li>
+       <li><a href="http://192.168.0.210/astra_monitor/rrdtool/graph/graph_day_28112.png" target="content">Streamer 8112</a></li>
+       <li><a href="http://192.168.0.210/astra_monitor/rrdtool/graph/graph_day_28113.png" target="content">Streamer 8113</a></li>
+       <li><a href="http://192.168.0.210/astra_monitor/rrdtool/graph/graph_day_28114.png" target="content">Streamer 8114</a></li>
+       <li><a href="http://192.168.0.210/astra_monitor/rrdtool/graph/graph_day_28115.png" target="content">Streamer 8115</a></li>
+       <li><a href="http://192.168.0.210/astra_monitor/rrdtool/graph/graph_day_28116.png" target="content">Streamer 8116</a></li>
+       <li><a href="http://192.168.0.210/astra_monitor/rrdtool/graph/graph_day_28117.png" target="content">Streamer 8117</a></li>
+       <li><a href="http://192.168.0.210/astra_monitor/rrdtool/graph/graph_day_28118.png" target="content">Streamer 8118</a></li>
+       <li><a href="http://192.168.0.210/astra_monitor/rrdtool/graph/graph_day_28119.png" target="content">Streamer 8119</a></li>
+       <li><a href="http://192.168.0.210/astra_monitor/rrdtool/graph/graph_day_28120.png" target="content">Streamer 8120</a></li>
+       <li><a href="http://192.168.0.210/astra_monitor/rrdtool/graph/graph_day_28121.png" target="content">Streamer 8121</a></li>
+     </ul>
+    </ul>
+   </li>
+
+   <li class="uk-nav-divider"></li>
+   <li><a href="http://ardee.ru/mosaic.php" target="content"><i class="uk-icon-image"></i> Мозаика</a></li>
+   <li><a href="http://iptv.ardee.ru/manager/" target="content"><i class="uk-icon-plug"></i>Eltex apps</a></li>
+   <li><a href="http://ardee.ru/smotr/log_active.php" target="content"><i class="uk-icon-lock"></i> Log ardee.ru</a></li>
+   <li><a href="http://iptv.ardee.ru:8080/smotr/log_active.php" target="content"><i class="uk-icon-lock"></i> Log iptv.ardee.ru</a></li>
+   <li><a href="http://ardee.ru/smotr/uptime.php" target="content"><i class="uk-icon-lock"></i> Uptime ardee.ru</a></li>
+   <li><a href="http://iptv.ardee.ru:8080/smotr/uptime.php" target="content"><i class="uk-icon-lock"></i> Uptime iptv.ardee.ru</a></li>
+   <li><a href="http://iptv.ardee.ru:8080/cacti/graph_view.php?action=preview" target="content"><i class="uk-icon-sitemap"></i> Cacti</a></li>
+   <li><a href="http://iptv.ardee.ru:8888" target="content"><i class="uk-icon-sitemap"></i> Oscam</a></li>
+   <li><a href="http://192.168.0.20/?page=connected-clients" target="content"><i class="uk-icon-sitemap"></i> Netup</a></li>
+   <li><a href="http://ardee.ru/smotr/session.php" target="content"><i class="uk-icon-sitemap"></i> Online clients</a></li>
+   <li><a href="http://ardee.ru/smotr/uptime.php" target="content"><i class="uk-icon-sitemap"></i> Sessions ardee.ru</a></li>
+   <li><a href="http://iptv.ardee.ru:8080/smotr/uptime.php" target="content"><i class="uk-icon-sitemap"></i> Sessions iptv.ardee.ru</a></li>   
+   <li><a href="http://ardee.ru/smotr/iptables.php" target="content"><i class="uk-icon-sitemap"></i> IPTables ardee.ru</a></li>
+   <li><a href="http://iptv.ardee.ru:8080/smotr/iptables.php" target="content"><i class="uk-icon-sitemap"></i> IPTables iptv.ardee.ru</a></li>
+   <li><a href="http://ardee.ru:8125" target="content"><i class="uk-icon-sitemap"></i> ardee monit</a></li>
+   <li><a href="http://iptv.ardee.ru:8125" target="content"><i class="uk-icon-sitemap"></i> iptv monit</a></li>   
+
+  </ul>
+ </div>
+</div>
+
+
+
+<!--Боковое меню 2-->
+<div id="offcanvas-2" class="uk-offcanvas">
+ <div class="uk-offcanvas-bar">
+  <ul class="uk-nav uk-nav-side uk-nav-offcanvas uk-nav-parent-icon" data-uk-nav>
+   <li class="uk-active"><a href="#offcanvas-2">Город 2</a></li>
+   <li><a href="" target="content"><i class="uk-icon-bar-chart"></i> Мониторинг</a></li>
+   <li class="uk-nav-divider"></li>
+   <li><a href="" target="content"><i class="uk-icon-bar-chart"></i> Luminato</a></li>
+   <li><a href="" target="content"><i class="uk-icon-image"></i> Мозаика</a></li>
+   <li><a href="" target="content"><i class="uk-icon-sitemap"></i> Схема IPTV</a></li>
+   <li><a href="" target="content"><i class="uk-icon-sitemap"></i> Схема LAN</a></li>
+  </ul>
+ </div>
+</div>
+
+
+
+
+<!--Боковое меню 3-->
+<div id="offcanvas-3" class="uk-offcanvas">
+ <div class="uk-offcanvas-bar">
+  <ul class="uk-nav uk-nav-side uk-nav-offcanvas uk-nav-parent-icon" data-uk-nav>
+   <li class="uk-active"><a href="#offcanvas-3">Полезные ресурсы</a></li>
+
+   <li><a href="http://meteorad.ru/static/phenomena.gif" target="content"><i class="uk-icon-map"></i> Метеорадар</a></li>
+   <li><a href="http://en.sat24.com/en/ru/km" target="content"><i class="uk-icon-map"></i> Спутниковый радар</a></li>
+   <li><a href="https://www.gismeteo.ru/nowcast-voronezh-5026/#fr0" target="content"><i class="uk-icon-map"></i> Спутниковый радар Gismeteo</a></li>
+   <li><a href="https://yandex.ru/pogoda/voronezh/nowcast" target="content"><i class="uk-icon-map"></i> Метеорадар Yandex</a></li>
+   <li class="uk-nav-divider"></li>
+
+   <li class="uk-parent">
+    <a href="#"><i class="uk-icon-cog"></i> Таблицы транспондеров</a>
+    <ul class="uk-nav-sub">
+       <li><a href="http://scansat.info/index.php?opt=36&prov=htb%2B" target="content"><i class="uk-icon-list"></i> Scansat</a></li>
+       <li><a href="https://www.lyngsat.com/packages/NTV-Plus.html" target="content"><i class="uk-icon-list"></i> Lyngsat</a></li>
+       <li><a href="http://www.flysat.com/ntvplus.php" target="content"><i class="uk-icon-list"></i> Flysat</a></li>
+    </ul>
+   </li>
+  </ul>
+ </div>
+</div>
+
+
+
+<!--Главная страница-->
+<div class="uk-cover uk-width-medium-10-10" style="margin:0px;padding:0px;overflow:hidden">
+    <iframe src="http://ardee.ru/monitor/index.php" width="100%" height="95%" frameborder="0" style="height:95vh;" allowfullscreen scrolling="auto" name="content"></iframe>
+</div>
+
+
+</body>
+</html>
+
