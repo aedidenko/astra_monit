@@ -1,0 +1,149 @@
+#!/bin/bash
+
+SCRIPT_PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+. $SCRIPT_PATH/config.sh
+
+id=$1
+channel_id=$id
+channel_id=`mysql -u$my_user -p$my_pass -h$my_host $my_db -e "select channel_id as '' from input where channel_id=$id"`
+#DB_CC=`mysql -u$my_user -p$my_pass -h$my_host $my_db -e "select cc_error as '' from input where channel_id=$1;" | grep '[0-9]'`
+DB_CC=`mysql -u$my_user -p$my_pass -h$my_host $my_db -e "select cc_error as '' from input where channel_id=$1;"`
+let "cc=$DB_CC*10"
+#DB_PES=`mysql -u$my_user -p$my_pass -h$my_host $my_db -e "select input.pes_error as '' from input where channel_id=$1;" | grep '[0-9]'`
+DB_PES=`mysql -u$my_user -p$my_pass -h$my_host $my_db -e "select input.pes_error as '' from input where channel_id=$1;"`
+let "PES=$DB_PES*10"
+#BIT=`mysql -u$my_user -p$my_pass -h$my_host $my_db -e "select bitrate as '' from input where channel_id=$1;" | grep '[0-9]'`
+#BER=`mysql -u$my_user -p$my_pass -h$my_host $my_db -e "select ber as '' from input where channel_id=$1;" | grep '[0-9]'`
+bitrate=`mysql -u$my_user -p$my_pass -h$my_host $my_db -e "select bitrate as '' from input where channel_id=$1;"`
+BER=`mysql -u$my_user -p$my_pass -h$my_host $my_db -e "select ber as '' from input where channel_id=$1;"`
+
+DB=`echo $db_path$channel_id.rrd | tr -d ' '`
+
+if [ ! -f $DB ]
+then
+/usr/bin/rrdtool create $DB --step 60 \
+DS:cc_error:GAUGE:120:0:100 \
+DS:pes_error:GAUGE:120:0:100 \
+DS:bitrate:GAUGE:120:0:U \
+DS:ber:GAUGE:120:0:U \
+RRA:AVERAGE:0.5:1:10080
+fi
+
+RES=`echo N:$cc_error:$pes_error:$bitrate:$BER | tr -d ' '`
+/usr/bin/rrdtool update $DB $RES
+
+#log=`echo /usr/local/bin/rrd/$channel_id.log | tr -d ' '`
+#/usr/bin/rrdtool fetch $DB AVERAGE --start -1h | tee $log
+
+/usr/bin/rrdtool graph $graph_path/graph_hour_$id.png \
+--width 600 \
+--height 300 \
+--start -1h \
+--end now \
+--upper-limit 101 \
+--rigid \
+DEF:gcc_error=$DB:cc_error:AVERAGE \
+DEF:gpes_error=$DB:pes_error:AVERAGE \
+DEF:gbitrate=$DB:bitrate:AVERAGE \
+DEF:gber=$DB:ber:AVERAGE \
+CDEF:cber=gber,100,% \
+CDEF:cbitrate=gbitrate,100,% \
+AREA:cbitrate#0000FF:"Invalid Blocks" \
+AREA:cber#009900:"Bit Errors(x100)" \
+LINE1:gcc_error#FF0000:"cc_error" \
+LINE1:gpes_error#00FFFF:"pes_error" \
+
+/usr/bin/rrdtool graph $graph_path/graph_hour_$id.png \
+--width 600 \
+--height 300 \
+--start -1h \
+--end now \
+--upper-limit 101 \
+--rigid \
+DEF:gcc_error=$DB:cc_error:AVERAGE \
+DEF:gpes_error=$DB:pes_error:AVERAGE \
+DEF:gbitrate=$DB:bitrate:AVERAGE \
+DEF:gber=$DB:ber:AVERAGE \
+CDEF:cber=gber,100,% \
+CDEF:cbitrate=gbitrate,100,% \
+AREA:cbitrate#0000FF:"Invalid Blocks" \
+AREA:cber#009900:"Bit Errors(x100)" \
+LINE1:gcc_error#FF0000:"cc_error" \
+LINE1:gpes_error#00FFFF:"pes_error" \
+
+
+
+/usr/bin/rrdtool graph $graph_path/graph_day_$id.png \
+--width 600 \
+--height 300 \
+--start -1d \
+--end now \
+--upper-limit 101 \
+--rigid \
+DEF:gcc_error=$DB:cc_error:AVERAGE \
+DEF:gpes_error=$DB:pes_error:AVERAGE \
+DEF:gbitrate=$DB:bitrate:AVERAGE \
+DEF:gber=$DB:ber:AVERAGE \
+CDEF:cber=gber,100,% \
+CDEF:cbitrate=gbitrate,100,% \
+AREA:cbitrate#0000FF:"Invalid Blocks" \
+AREA:cber#009900:"Bit Errors(x100)" \
+LINE1:gcc_error#FF0000:"cc_error" \
+LINE1:gpes_error#00FFFF:"pes_error" \
+
+
+/usr/bin/rrdtool graph $graph_path/graph_day_$id.png \
+--width 600 \
+--height 300 \
+--start -1d \
+--end now \
+--upper-limit 101 \
+--rigid \
+DEF:gcc_error=$DB:cc_error:AVERAGE \
+DEF:gpes_error=$DB:pes_error:AVERAGE \
+DEF:gbitrate=$DB:bitrate:AVERAGE \
+DEF:gber=$DB:ber:AVERAGE \
+CDEF:cber=gber,100,% \
+CDEF:cbitrate=gbitrate,100,% \
+AREA:cbitrate#0000FF:"Invalid Blocks" \
+AREA:cber#009900:"Bit Errors(x100)" \
+LINE1:gcc_error#FF0000:"cc_error" \
+LINE1:gpes_error#00FFFF:"pes_error" \
+
+
+
+/usr/bin/rrdtool graph $graph_path/graph_week_$id.png \
+--width 600 \
+--height 300 \
+--start -7d \
+--end now \
+--upper-limit 101 \
+--rigid \
+DEF:gcc_error=$DB:cc_error:AVERAGE \
+DEF:gpes_error=$DB:pes_error:AVERAGE \
+DEF:gbitrate=$DB:bitrate:AVERAGE \
+DEF:gber=$DB:ber:AVERAGE \
+CDEF:cber=gber,100,% \
+CDEF:cbitrate=gbitrate,100,% \
+AREA:cbitrate#0000FF:"Invalid Blocks" \
+AREA:cber#009900:"Bit Errors(x100)" \
+LINE1:gcc_error#FF0000:"cc_error" \
+LINE1:gpes_error#00FFFF:"pes_error" \
+
+/usr/bin/rrdtool graph $graph_path/graph_week_$id.png \
+--width 600 \
+--height 300 \
+--start -7d \
+--end now \
+--upper-limit 101 \
+--rigid \
+DEF:gcc_error=$DB:cc_error:AVERAGE \
+DEF:gpes_error=$DB:pes_error:AVERAGE \
+DEF:gbitrate=$DB:bitrate:AVERAGE \
+DEF:gber=$DB:ber:AVERAGE \
+CDEF:cber=gber,100,% \
+CDEF:cbitrate=gbitrate,100,% \
+AREA:cbitrate#0000FF:"Invalid Blocks" \
+AREA:cber#009900:"Bit Errors(x100)" \
+LINE1:gcc_error#FF0000:"cc_error" \
+LINE1:gpes_error#00FFFF:"pes_error" \
